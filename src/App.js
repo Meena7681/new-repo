@@ -1,29 +1,29 @@
+import React ,{ useEffect }from 'react';
 import './App.css';
+import ContactForm from "./ContactForm";
 
-function App() {
+const App = () => {
+   
+   useEffect(()=>{
+    fetch("/api")
+    .then((res)=> res.json())
+    .then((data)=> {console.log(data)})
+   },[])
+ 
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+    <div className="container">
+      <div className="left-column">
+        <div className="content">
+          <img src="/astronaut.png" alt="your-image-description-here" />
+        </div>
+      </div>
+      <div className="right-column">
+        <ContactForm />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
